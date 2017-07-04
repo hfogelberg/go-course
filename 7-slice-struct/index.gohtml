@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Slice-Struct example</title>
+  </head>
+  <body>
+    <div class="">
+      <ul>
+        {{range .Creatures}}
+          {{.Name}}: {{.Being}}
+        {{end}}
+      </ul>
+      <hr>
+      <ul>
+        {{range .Quotes}}
+          {{.Name}}: {{.Says}}
+        {{end}}
+      </ul>
+    </div>
+
+  </body>
+</html>

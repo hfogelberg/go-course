@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div>
+      <form action="/" method="POST">
+        <input type="text" name="fname" value="" name="fname" autofocus autocomplete="off">
+        <input type="submit" vale="button">
+      </form>
+    </div>
+
+    <div>
+      {{if .}}
+      <div>
+        <p>{{if .Method}}The request method: {{.Method}}{{end}}</p>
+        <p>{{if .Submission}}The Submission: {{.Submission}}{{end}}</p>
+        <p>{{if .Header}}The header: {{.Header}}{{end}}</p>
+        <p>{{if .ContentLength}}The content length: {{.ContentLength}}{{end}}</p>
+        <p>
+            {{if .URL}}
+              The request URL: 
+              <ul>
+                <li>Scheme: {{.URL.Scheme}}</li>
+                <li>Opaque: {{.URL.Opaque}}</li>
+                <li>Host: {{.URL.Host}}</li>
+                <li>Path: {{.URL.Path}}</li>
+                <li>RawPath: {{.URL.RawPath}}</li>
+                <li>ForceQuery: {{.URL.ForceQuery}}</li>
+                <li>RawQuery: {{.URL.RawQuery}}</li>
+                <li>Fragment: {{.URL.Fragment}}</li>
+              </ul>
+
+            {{end}}
+        </p>
+        
+
+        <p>Variable names (identifiers) and values</p>
+        {{range $key, $value := .Submission}}
+          <p>{{$key}}</p>
+          <ul>
+            {{range $value}}
+              <li>{{.}}</li>
+            {{end}}
+          </ul>
+        {{end}}
+      </div>
+      {{end}}
+    </div>
+
+  </body>
+</html>
